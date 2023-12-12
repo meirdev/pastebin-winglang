@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pastebin / Wing</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/github-dark.css" />
+    <script src="./css/highlight.min.js"></script>
+</head>
+
+<body class="bg-neutral-950 text-white">
+    <div class="flex justify-center my-5">
+        <div class="w-1/2">
+            <h1 class="text-5xl font-bold mb-5">Pastebin</h1>
+            <div id="index">
+                <div class="mb-2">
+                    <textarea id="input-code" rows="10"
+                        class="bg-neutral-900 p-2 w-full border border-neutral-700"></textarea>
+                </div>
+                <div class="mb-2">
+                    <label class="inline-block w-40">Name:</label>
+                    <input id="input-name" type="text" name="name" value=""
+                        class="bg-neutral-900 text-white p-2 w-60 border border-neutral-700" />
+                </div>
+                <div class="mb-2">
+                    <label class="inline-block w-40">Language:</label>
+                    <select id="input-language" name="language"
+                        class="bg-neutral-900 text-white p-2 w-60 border border-neutral-700">
+                        <option value="text">Text</option>
+                        <option value="python">Python</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="c">C</option>
+                    </select>
+                </div>
+                <div class="mb-5">
+                    <label class="inline-block w-40">Expiration:</label>
+                    <select id="input-expiration" name="expiration"
+                        class="bg-neutral-900 text-white p-2 w-60 border border-neutral-700">
+                        <option value="">Never</option>
+                        <option value="10m">10 minutes</option>
+                        <option value="1h">1 Hour</option>
+                        <option value="1d">1 Day</option>
+                    </select>
+                </div>
+                <div class="text-center">
+                    <button class="bg-emerald-500 p-3" id="submit">Submit</button>
+                </div>
+            </div>
+            <div id="code" class="hidden">
+                <h2 id="code-title" class="text-2xl font-bold mb-5">
+                    {{ CODE TITLE }}
+                </h2>
+                <pre><code id="code-body">{{ CODE_BODY }}</code></pre>
+            </div>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+
+</html>
