@@ -1,6 +1,7 @@
 bring cloud;
 bring ex;
 bring expect;
+bring fs;
 bring http;
 
 class Utils {
@@ -115,7 +116,7 @@ let api = new cloud.Api({ cors: true });
 
 let schedule = new cloud.Schedule(rate: 10m);
 
-// let website = new cloud.Website(path: "./public");
+let website = new cloud.Website(path: "./public");
 
 api.post("/", inflight (req) => {
     if let requestBody = req.body {
@@ -155,6 +156,10 @@ api.get("/:id/", inflight (req) => {
 schedule.onTick(inflight () => {
     store.deleteItems(std.Datetime.utcNow().toIso());
 });
+
+// TODO: update api url
+// let mainJs = fs.readFile("public/main.js");
+// fs.writeFile("public/main.js", mainJs.replace("#BASE_URL_API#", api.url));
 
 test "check store" {
     let itemsBeforePut = store.getItems(10);

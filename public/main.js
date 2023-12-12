@@ -1,6 +1,6 @@
 const { hash } = window.location;
 
-const baseUrlApi = "http://127.0.0.1:56779";
+const baseUrlApi = "#BASE_URL_API#";
 
 const index = document.querySelector("#index");
 const code = document.querySelector("#code");
